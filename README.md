@@ -76,7 +76,8 @@ When booking seats, enter the seat numbers as shown (1-based indexing). The prog
    - Enter the seat numbers you want to book.
    - The program will check the validity of the seat numbers and book the seats if they are available.
    - If any seat number is invalid or unavailable, the program will notify you with an error message.
-**API Documentation:**
+     
+## API Documentation:
 # Theater Class
 # Theater(const std::string& name)
 Constructor to initialize a theater with a name and 20 available seats.
