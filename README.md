@@ -44,9 +44,9 @@ When booking seats, enter the seat numbers as shown (1-based indexing). The prog
 2. **See all theaters showing a movie**
    - Ask you to enter the movie name and displays a list of theaters showing the movie.
 3. **See available seats for a selected theater & movie**
-   - Prompts you to enter the theater name and displays a list of available seats in the theater.
+   - Prompts you to enter Movie name and the Theater name and displays a list of available seats in the theater.
 4. **Book one or more seats**
-   - Ask you to enter the theater name and the number of seats to book.
+   - Ask you to enter the Movie name,theater name and the number of seats to book.
    - Then prompts you to enter the seat numbers.
    - If the seat numbers are valid and available, books the seats and confirms the booking.
    - If any seat number is invalid or unavailable, notifies you with an error message.
@@ -66,11 +66,13 @@ When booking seats, enter the seat numbers as shown (1-based indexing). The prog
 
 3. **See available seats for a selected theater & movie:**
    - Choose option 3 from the menu.
+   - Enter the name of the movie.
    - Enter the name of the theater.
    - The program will display all available seats in that theater.
 
 4. **Book one or more seats:**
    - Choose option 4 from the menu.
+   - Enter the name of the movie.
    - Enter the name of the theater.
    - Enter the number of seats you want to book.
    - Enter the seat numbers you want to book.
@@ -80,19 +82,19 @@ When booking seats, enter the seat numbers as shown (1-based indexing). The prog
 ## API Documentation:
 # Theater Class
 # Theater(const std::string& name)
-Constructor to initialize a theater with a name and 20 available seats.
+Constructor to initialize a theater with a name.
 
 # const std::string& getName() const
 Returns the name of the theater.
 
-# std::vector<int> getAvailableSeats() const
+# std::vector<int> getAvailableSeats(const std::string& movieName)) const
 Returns a list of available seat numbers.
 
-# bool bookSeats(const std::vector<int>& seatsToBook)
+# bool bookSeats(const std::string& movieName, const std::vector<int>& seatsToBook)
 Books the specified seats if they are available. Returns true if successful, false otherwise.
 
 ## MovieService Class
-## void addMovie(const std::string& movieName, const std::vector<std::string>& theaterNames)
+## void addMovie(const std::string& movieName, const std::vectorstd::string& theaterNames)
 Adds a movie and the theaters where it is being shown.
 
 ## std::vector<std::string> getAllMovies() const
@@ -101,10 +103,10 @@ Returns a list of all movies.
 ## std::vector<std::string> getTheatersForMovie(const std::string& movieName) const
 Returns a list of theaters showing the specified movie.
 
-## std::vector<int> getAvailableSeats(const std::string& theaterName) const
+## std::vector<int> getAvailableSeats(const std::string& movieName, const std::string& theaterName) const
 Returns a list of available seats for the specified theater.
 
-## bool bookSeats(const std::string& theaterName, const std::vector<int>& seatsToBook)
+## bool bookSeats(const std::string& movieName, const std::string& theaterName, const std::vector<int>& seatsToBook)
 Books the specified seats in the specified theater. Returns true if successful, false otherwise.
 
 ## bool isValidSeatNumber(int seat, const std::vector<int>& availableSeats) const
